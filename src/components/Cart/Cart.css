@@ -1,0 +1,31 @@
+.cart-section{
+    min-height: 90vh;
+}
+.cart-image{
+    min-width: 100px;
+    max-width: 100px;
+    border-radius: 10px;
+}
+.cart-card{
+    margin: 20px;
+    border: 1px solid rgb(209, 208, 208);
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+.cart-card>.data{
+    margin-left: 15%;
+}
+
+@media only screen and (max-width: 400px){
+    .cart-card{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .cart-card>.data{
+        margin-left: 30%;
+        margin-top: 15%;
+        margin-bottom: 10%;
+    }
+}

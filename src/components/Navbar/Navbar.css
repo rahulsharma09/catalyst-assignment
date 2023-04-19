@@ -1,0 +1,40 @@
+.navbar-nav{
+    margin-left: auto;
+}
+.navbar.transparent.navbar-inverse .navbar-inner {
+    border-width: 0px;
+    -webkit-box-shadow: 0px 0px;
+    box-shadow: 0px 0px;
+    background-color: rgba(0,0,0,0.0);
+    background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0% , rgba(0,0,0,0.00)),color-stop( 100% , rgba(0,0,0,0.00)));
+    background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+    background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+}
+.nav-title:hover{
+    text-decoration: none;
+    color: white;
+}
+.nav-title{
+    text-transform: uppercase;
+    color: white;
+}
+.nav-link{
+    color: white;
+    font-weight: bold;
+}
+.nav-link:hover{
+    text-decoration: underline;
+    color: white;
+}
+
+.head-title{
+    color: rgb(185, 184, 184)
+}
+.navbar-toggler{
+    /* background: red; */
+}
+@media only screen and (max-width: 400px){
+    .nav-link,.nav-title{
+        color: black!important;
+    }
+}

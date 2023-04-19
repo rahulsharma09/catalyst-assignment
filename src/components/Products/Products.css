@@ -1,0 +1,114 @@
+.products-section {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  /* margin-top: 11%; */
+}
+.product-image {
+  width: 300px;
+  /* height: 300px; */
+}
+p {
+  margin-bottom: 0px;
+}
+.price {
+  margin-bottom: 10px;
+  margin-bottom: 10px;
+  color: maroon;
+}
+.custom-card {
+  margin-bottom: 10px;
+}
+/* (B) POSITION CAPTION */
+.hovercap {
+  /* (B1) PLACE AT BOTTOM */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  /* (B2) DIMENSIONS + COLORS */
+  width: 100%;
+  padding: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* (A) RESPONSIVE IMAGE */
+.hoverwrap img { width: 100%; }
+.hoverwrap {
+  max-width: 500px; /* optional */
+  position: relative; /* required for (b1) */
+}
+
+/* (B) POSITION CAPTION */
+.hovercap {
+    /* (B1) PLACE AT BOTTOM */
+    position: absolute; bottom: 0; left: 0;
+
+    /* (B2) DIMENSIONS + COLORS */
+    width: 100%; padding: 10px;
+    color: white;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.637);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+/* (C) ONLY SHOW CAPTION ON HOVER */
+.hovercap {
+  visibility: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.hoverwrap:hover .hovercap {
+  visibility: visible;
+  opacity: 1;
+  cursor: pointer;
+}
+.color-material {
+  display: flex;
+}
+.color-material > p {
+  margin-right: 10px;
+}
+.product-root{
+  margin-top: 11%;
+  display: flex;
+}
+.filter-section{
+  /* background: red; */
+  width: 100%;
+  margin-left: 2%;
+}
+.material-filter,.color-filter{
+  margin-top: 10%;
+}
+.material-filter,.color-filter,div{
+  text-transform: uppercase;
+}
+.material-filter,.color-filter,p:hover{
+  cursor: pointer;
+}
+.material-filter>div:hover{
+  color: blue;
+  font-weight: bold;
+}
+@media only screen and (max-width: 400px){
+  .product-image{
+    width: 100%!important;
+    margin-bottom: 10px;
+  }
+  .products-section{
+    display: flex;
+  }
+  .filter-section{
+    display: none!important;
+  }
+  .custom-card{
+    margin: auto!important;
+    margin-bottom: 20px!important;
+    border: 1px solid lightgrey;
+    padding: 20px;
+    border-radius: 5px;
+  }
+}
