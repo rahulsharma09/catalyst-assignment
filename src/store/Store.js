@@ -5,6 +5,7 @@ import materialReducer from './materialSlice';
 import cartReducer from './cartSlice';
 import featuredProductReducer from './featuredSlice'
 import materialFilterReducer from './materialFilterSlice'
+import colorFilterReducer from './colorFilterSlice'
 
 const store = configureStore({
     reducer:{
@@ -13,7 +14,8 @@ const store = configureStore({
         material: materialReducer,
         cart: cartReducer,
         featured: featuredProductReducer,
-        materialFilter: materialFilterReducer
+        materialFilter: materialFilterReducer,
+        colorFilter: colorFilterReducer
     }
 })
 

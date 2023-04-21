@@ -1,7 +1,8 @@
 .products-section {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  width: 100%;
   /* margin-top: 11%; */
 }
 .product-image {
@@ -18,6 +19,7 @@ p {
 }
 .custom-card {
   margin-bottom: 10px;
+  margin-left: 30px;
 }
 /* (B) POSITION CAPTION */
 .hovercap {
@@ -33,7 +35,9 @@ p {
   background-color: rgba(0, 0, 0, 0.5);
 }
 /* (A) RESPONSIVE IMAGE */
-.hoverwrap img { width: 100%; }
+.hoverwrap img {
+  width: 100%;
+}
 .hoverwrap {
   max-width: 500px; /* optional */
   position: relative; /* required for (b1) */
@@ -41,18 +45,21 @@ p {
 
 /* (B) POSITION CAPTION */
 .hovercap {
-    /* (B1) PLACE AT BOTTOM */
-    position: absolute; bottom: 0; left: 0;
+  /* (B1) PLACE AT BOTTOM */
+  position: absolute;
+  bottom: 0;
+  left: 0;
 
-    /* (B2) DIMENSIONS + COLORS */
-    width: 100%; padding: 10px;
-    color: white;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.637);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  /* (B2) DIMENSIONS + COLORS */
+  width: 100%;
+  padding: 10px;
+  color: white;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.637);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* (C) ONLY SHOW CAPTION ON HOVER */
 .hovercap {
@@ -71,42 +78,47 @@ p {
 .color-material > p {
   margin-right: 10px;
 }
-.product-root{
+.product-root {
   margin-top: 11%;
   display: flex;
 }
-.filter-section{
+.filter-section {
   /* background: red; */
-  width: 100%;
+  width: 20%;
   margin-left: 2%;
 }
-.material-filter,.color-filter{
+.material-filter,
+.color-filter {
   margin-top: 10%;
 }
-.material-filter,.color-filter,div{
+.material-filter,
+.color-filter,
+div {
   text-transform: uppercase;
 }
-.material-filter,.color-filter,p:hover{
+.material-filter,
+.color-filter,
+p:hover {
   cursor: pointer;
 }
-.material-filter>div:hover{
+.material-filter > div:hover {
   color: blue;
   font-weight: bold;
 }
-@media only screen and (max-width: 400px){
-  .product-image{
-    width: 100%!important;
+@media only screen and (max-width: 400px) {
+  .product-image {
+    width: 100% !important;
     margin-bottom: 10px;
   }
-  .products-section{
+  .products-section {
     display: flex;
   }
-  .filter-section{
-    display: none!important;
+  .filter-section {
+    display: none !important;
   }
-  .custom-card{
-    margin: auto!important;
-    margin-bottom: 20px!important;
+  .custom-card {
+    margin: auto !important;
+    margin-bottom: 20px !important;
     border: 1px solid lightgrey;
     padding: 20px;
     border-radius: 5px;

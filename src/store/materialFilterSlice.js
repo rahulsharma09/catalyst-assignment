@@ -38,10 +38,14 @@ export function filterProducts(id) {
         axios
           .get(url, { headers: { Authorization: `Bearer ${token}` } })
           .then((res) => {
+            let materialProducts = [];
             let products = res.data.products;
-            filteredProducts = products.filter(item => item.materialId == id);
-            console.log("Filtered product from slice: ",filterProducts)
-            // dispatch(setFilteredProduct(filteredProducts));
+            products.map((product) => {
+              if(product.materialId == id){
+                materialProducts.push(product); 
+              }
+            })
+            dispatch(setFilteredProduct(materialProducts));
             dispatch(setStatus(STATUSES.IDLE));
           });
       } catch (error) {

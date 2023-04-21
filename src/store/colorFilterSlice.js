@@ -6,14 +6,14 @@ const STATUSES = Object.freeze({
   LOADING: "loading",
 });
 
-const featuredProductSlice = createSlice({
-  name: "product",
+const colorFilterSlice = createSlice({
+  name: "colorFilter",
   initialState: {
     data: [],
     status: STATUSES.IDLE,
   },
   reducers: {
-    setFeaturedProduct(state, action) {
+    setFilteredProduct(state, action) {
       state.data = action.payload;
     },
     setStatus(state, action) {
@@ -22,22 +22,28 @@ const featuredProductSlice = createSlice({
   },
 });
 
-export const { setFeaturedProduct, setStatus } = featuredProductSlice.actions;
-export default featuredProductSlice.reducer;
+export const { setFilteredProduct, setStatus } = colorFilterSlice.actions;
+export default colorFilterSlice.reducer;
 
-// THUNKS
-export function fetchFeaturedProducts(id) {
-  return async function fetchFeaturedProductThunk(dispatch, getState) {
+// THUNK
+export function filterColorProducts(id) {
+  return async function filterColorProductsThunk(dispatch) {
     dispatch(setStatus(STATUSES.LOADING));
     const token = "Ex9yLyRU7wvyxfblpq5HAhfQqUP1vIyo";
     const url =
-      "https://api.sheety.co/af35b536915ec576818d468cf2a6505c/reactjsTest/featured";
+      "https://api.sheety.co/af35b536915ec576818d468cf2a6505c/reactjsTest/products";
     try {
       axios
         .get(url, { headers: { Authorization: `Bearer ${token}` } })
         .then((res) => {
-          
-          dispatch(setFeaturedProduct(res.data));
+          let materialProducts = [];
+          let products = res.data.products;
+          products.map((product) => {
+            if (product.colorId == id) {
+              materialProducts.push(product);
+            }
+          });
+          dispatch(setFilteredProduct(materialProducts));
           dispatch(setStatus(STATUSES.IDLE));
         });
     } catch (error) {

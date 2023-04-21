@@ -1,14 +1,15 @@
 import React from "react";
+import './Filter.css'
 
-const Filter = ({ color, material, materialFilter }) => {
+const Filter = ({ color, material, materialFilter, colorFilter }) => {
   return (
-    <div className="">
+    <div className="filter-div">
       <h5>
         <b>Filter</b>
       </h5>
       <div className="material-filter">
-        <h6>Materials</h6>
-        <p className="mb-3">
+        <h6 className="mb-3 mt-5">Materials</h6>
+        <p className="mb-2">
           <b>All</b>
         </p>
         {material.map((material, index) => {
@@ -19,14 +20,14 @@ const Filter = ({ color, material, materialFilter }) => {
           );
         })}
       </div>
-      <div className="color-filter">
-        <h6>Colors</h6>
-        <p className="mb-3">
+      <div className="mt-5 color-filter">
+        <h6>Color</h6>
+        <p className="mb-2">
           <b>All</b>
         </p>
         {color.map((color, index) => {
           return (
-            <div key={index}>
+            <div onClick={() => {colorFilter(color.id)}} key={index}>
               <p>{color.name}</p>
             </div>
           );
