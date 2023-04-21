@@ -16,6 +16,10 @@ const productSlice = createSlice({
     setProducts(state, action) {
       state.data = action.payload;
     },
+    // setProductById(state, action){
+    //   console.log("Product log from slice : ",state)
+    //   // state.data
+    // },
     setStatus(state, action) {
       state.status = action.payload;
     },
