@@ -3,18 +3,24 @@ import "./FeaturedProduct.css";
 import { addToCart } from "../../store/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const FeaturedCard = ({ product, color, material, featured }) => {
+const FeaturedCard = ({ product, color, material }) => {
   const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const handleCart = (product) => {
     let flag = false;
-    console.log(cartItems.length);
+    // console.log(cartItems.length);
     if (cartItems.length <= 0) {
-      console.log("INside");
       dispatch(addToCart(product));
+      let cookie = []
+      cookie.push(product)
+      localStorage.setItem("cartProducts", JSON.stringify(cookie));
       alert("Product added to cart");
     } else {
-      console.log("Ourseid");
+      let cookieProduct = localStorage.getItem("cartProducts");
+      cookieProduct = JSON.parse(cookieProduct);
+      console.log(cookieProduct)
+      cookieProduct.push(product);
+      localStorage.setItem("cartProducts",JSON.stringify(cookieProduct))
       cartItems.map((item) => {
         if (item.id == product.id) {
           flag = true;
@@ -30,40 +36,32 @@ const FeaturedCard = ({ product, color, material, featured }) => {
   };
   return (
     <div className="custom-card">
-      {featured.map((prod) => {
-        if (prod.productId == product.id) {
-          return (
-            <>
-              <div className="hoverwrap" onClick={() => handleCart(product)}>
-                <img className="product-image" src={product.image} alt="" />
-                <div class="hovercap">
-                  <h4>Add to cart</h4>
-                </div>
-              </div>
-              <p>{product.name}</p>
-              <div className="color-material">
-                <p>
-                  {color.map((color, index) => {
-                    if (product.colorId == color.id) {
-                      return <p>{color.name}</p>;
-                    }
-                  })}
-                </p>
-                <p>
-                  {material.map((material, index) => {
-                    if (product.materialId == material.id) {
-                      return <p>{material.name}</p>;
-                    }
-                  })}
-                </p>
-              </div>
-              <div className="price">
-                <p>INR {product.price}.00</p>
-              </div>
-            </>
-          );
-        }
-      })}
+      <div className="hoverwrap" onClick={() => handleCart(product)}>
+        <img className="product-image" src={product.image} alt="" />
+        <div class="hovercap">
+          <h4>Add to cart</h4>
+        </div>
+      </div>
+      <p>{product.name}</p>
+      <div className="color-material">
+        <p>
+          {color.map((color, index) => {
+            if (product.colorId == color.id) {
+              return <p>{color.name}</p>;
+            }
+          })}
+        </p>
+        <p>
+          {material.map((material, index) => {
+            if (product.materialId == material.id) {
+              return <p>{material.name}</p>;
+            }
+          })}
+        </p>
+      </div>
+      <div className="price">
+        <p>INR {product.price}.00</p>
+      </div>
     </div>
   );
 };

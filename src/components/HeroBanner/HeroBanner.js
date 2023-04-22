@@ -9,7 +9,7 @@ const HeroBanner = () => {
       <div className="banner-text">
         <h2>Latest Styles</h2>
         <h5>At Yesterday's Price</h5>
-        <button className="btn btn-danger">
+        <button className="btn btn-browse btn-danger">
           <h5 className='btn-text'>Browse all styles</h5>
         </button>
       </div>

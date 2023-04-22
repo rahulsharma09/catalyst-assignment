@@ -110,11 +110,15 @@ p:hover {
     width: 100% !important;
     margin-bottom: 10px;
   }
+  .product-root{
+    flex-direction: column;
+  }
   .products-section {
     display: flex;
   }
   .filter-section {
-    display: none !important;
+    /* display: none !important; */
+    width: 90%;
   }
   .custom-card {
     margin: auto !important;

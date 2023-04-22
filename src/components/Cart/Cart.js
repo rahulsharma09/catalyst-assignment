@@ -7,13 +7,46 @@ import { useDispatch } from "react-redux";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
+  let cart = useSelector((state) => state.cart);
+  let cartProducts;
   useEffect(() => {
     document.getElementById("navbar").style.background = "grey";
   }, []);
   const handleRemove = (id) => {
+    let arr = [];
+    console.log("Handle Remove ", cart.length);
     dispatch(removeFromCart(id));
+    deleteFromCart(id);
   };
+  const deleteFromCart = (id) => {
+    cartProducts = localStorage.getItem("cartProducts");
+    cartProducts = JSON.parse(cartProducts);
+    console.log("data - - - ", cartProducts.length);
+    if (cartProducts.length > 0) {
+      console.log("first")
+      if (cartProducts.length == 1 && cartProducts.id == id) {
+        localStorage.setItem("cartProducts", []);
+        return;
+      }
+      console.log("IN else");
+      let arr = [];
+      for (let i = 0; i < cartProducts.length; i++) {
+        if (cartProducts[i].id != id) {
+          arr.push(cartProducts[i]);
+        }
+      }
+      console.log("after remove - ", arr);
+      localStorage.setItem("cartProducts", JSON.stringify(arr));
+    }
+  };
+  if (cart.length == 0) {
+    cart = [];
+    cartProducts = localStorage.getItem("cartProducts");
+    cartProducts = JSON.parse(cartProducts);
+    console.log("Cart product data on render ---", cartProducts);
+    cart = cartProducts;
+    console.log("Cart set - ", cart);
+  }
   return (
     <div className="cart-section p-5">
       <h5>Your Cart</h5>

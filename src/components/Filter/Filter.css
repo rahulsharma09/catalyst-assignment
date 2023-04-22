@@ -1,12 +1,27 @@
-.filter-div>h5,p,h6{
-    text-transform: capitalize!important;
+.filter-div > h5,
+p,
+h6 {
+  text-transform: capitalize !important;
 }
-.material-filter,.color-filter,h6{
-    font-weight: normal!important;
+.material-filter,
+.color-filter,
+h6 {
+  font-weight: normal !important;
 }
-.material-filter>div>p{
-    margin-bottom: 5px;
+.material-filter > div > p {
+  margin-bottom: 5px;
 }
-.color-filter>div>p{
-    margin-bottom: 5px;
+.color-filter > div > p {
+  margin-bottom: 5px;
+}
+.mobile-filter{
+    display: none;
+}
+@media only screen and (max-width: 400px) {
+  .filter-div {
+    display: none;
+  }
+  .mobile-filter{
+    display: block;
+  }
 }

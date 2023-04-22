@@ -4,17 +4,23 @@ import { addToCart } from "../../store/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const ProductCard = ({ product, color, material }) => {
-  const cartItems = useSelector(state => state.cart)
+  const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const handleCart = (product) => {
     let flag = false;
-    console.log(cartItems.length);
+    // console.log(cartItems.length);
     if (cartItems.length <= 0) {
-      console.log("INside");
       dispatch(addToCart(product));
+      let cookie = []
+      cookie.push(product)
+      localStorage.setItem("cartProducts", JSON.stringify(cookie));
       alert("Product added to cart");
     } else {
-      console.log("Ourseid");
+      let cookieProduct = localStorage.getItem("cartProducts");
+      cookieProduct = JSON.parse(cookieProduct);
+      console.log(cookieProduct)
+      cookieProduct.push(product);
+      localStorage.setItem("cartProducts",JSON.stringify(cookieProduct))
       cartItems.map((item) => {
         if (item.id == product.id) {
           flag = true;

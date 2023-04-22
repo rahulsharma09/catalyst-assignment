@@ -86,7 +86,6 @@
   .featured-root{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
   }
   .material-filter,.color-filter{
     margin-top: 10%;

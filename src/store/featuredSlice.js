@@ -26,7 +26,7 @@ export const { setFeaturedProduct, setStatus } = featuredProductSlice.actions;
 export default featuredProductSlice.reducer;
 
 // THUNKS
-export function fetchFeaturedProducts(id) {
+export function fetchFeaturedProducts() {
   return async function fetchFeaturedProductThunk(dispatch, getState) {
     dispatch(setStatus(STATUSES.LOADING));
     const token = "Ex9yLyRU7wvyxfblpq5HAhfQqUP1vIyo";
@@ -36,7 +36,6 @@ export function fetchFeaturedProducts(id) {
       axios
         .get(url, { headers: { Authorization: `Bearer ${token}` } })
         .then((res) => {
-          
           dispatch(setFeaturedProduct(res.data));
           dispatch(setStatus(STATUSES.IDLE));
         });
