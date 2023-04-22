@@ -12,7 +12,7 @@ const Navbar = () => {
     let cartProducts = localStorage.getItem("cartProducts");
     cartProducts = JSON.parse(cartProducts);
     if (cartProducts != null && cartProducts.length > 0) {
-      console.log(cartProducts);
+      // console.log(cartProducts);
       cartLength = cartProducts.length;
     }
   }

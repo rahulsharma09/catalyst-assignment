@@ -14,28 +14,28 @@ const Cart = () => {
   }, []);
   const handleRemove = (id) => {
     let arr = [];
-    console.log("Handle Remove ", cart.length);
+    // console.log("Handle Remove ", cart.length);
     dispatch(removeFromCart(id));
     deleteFromCart(id);
   };
   const deleteFromCart = (id) => {
     cartProducts = localStorage.getItem("cartProducts");
     cartProducts = JSON.parse(cartProducts);
-    console.log("data - - - ", cartProducts.length);
+    // console.log("data - - - ", cartProducts.length);
     if (cartProducts.length > 0) {
-      console.log("first")
+      // console.log("first")
       if (cartProducts.length == 1 && cartProducts.id == id) {
         localStorage.setItem("cartProducts", []);
         return;
       }
-      console.log("IN else");
+      // console.log("IN else");
       let arr = [];
       for (let i = 0; i < cartProducts.length; i++) {
         if (cartProducts[i].id != id) {
           arr.push(cartProducts[i]);
         }
       }
-      console.log("after remove - ", arr);
+      // console.log("after remove - ", arr);
       localStorage.setItem("cartProducts", JSON.stringify(arr));
     }
   };
@@ -43,9 +43,9 @@ const Cart = () => {
     cart = [];
     cartProducts = localStorage.getItem("cartProducts");
     cartProducts = JSON.parse(cartProducts);
-    console.log("Cart product data on render ---", cartProducts);
+    // console.log("Cart product data on render ---", cartProducts);
     cart = cartProducts;
-    console.log("Cart set - ", cart);
+    // console.log("Cart set - ", cart);
   }
   return (
     <div className="cart-section p-5">

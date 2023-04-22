@@ -46,7 +46,7 @@ const Products = () => {
   //       }
   //     }
   //   }
-  //   console.log("Prod array -- ", arr);
+  //   // console.log("Prod array -- ", arr);
   //   localStorage.setItem("featuredProduct", JSON.stringify(arr));
   // };
   // getFeaturedProducts();
@@ -58,7 +58,7 @@ const Products = () => {
     dispatch(fetchFeaturedProducts());
     setTimeout(() => {
       setLoading(0);
-      console.log(loading);
+      // console.log(loading);
     }, 4000);
     setSelectedFilter("All");
   }, []);
@@ -69,7 +69,7 @@ const Products = () => {
     setTimeout(() => {
       setLoading(0);
     }, 1800);
-    console.log("Material dispatch");
+    // console.log("Material dispatch");
   }, [selectedMaterialFilter]);
 
   useEffect(() => {
@@ -80,21 +80,21 @@ const Products = () => {
       setLoading(0);
     }, 1800);
   }, [selectedColorFilter]);
-  console.log("******** Selected Filter *************", selectedFilter);
+  // console.log("******** Selected Filter *************", selectedFilter);
   switch (selectedFilter) {
     case "Material":
-      console.log("material selected");
+      // console.log("material selected");
       products = materialFilterProducts;
       break;
     case "Color":
-      console.log("color selected");
+      // console.log("color selected");
       products = colorFilterProduct;
       break;
     case "All":
       products = allProducts;
       break;
   }
-  console.log("Products: ", products);
+  // console.log("Products: ", products);
   return (
     <div>
       <HeroBanner />

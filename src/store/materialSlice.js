@@ -41,7 +41,7 @@ export function fetchMaterial(){
           dispatch(setStatus(STATUSES.IDLE));
         });
         } catch (error) {
-            console.log(error)
+            // console.log(error)
             dispatch(setStatus(STATUSES.ERORR))
         }
     }

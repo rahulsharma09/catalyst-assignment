@@ -17,7 +17,7 @@ const productSlice = createSlice({
       state.data = action.payload;
     },
     // setProductById(state, action){
-    //   console.log("Product log from slice : ",state)
+    //   // console.log("Product log from slice : ",state)
     //   // state.data
     // },
     setStatus(state, action) {
@@ -44,7 +44,7 @@ export function fetchProducts() {
           dispatch(setStatus(STATUSES.IDLE));
         });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       dispatch(setStatus(STATUSES.ERORR));
     }
   };

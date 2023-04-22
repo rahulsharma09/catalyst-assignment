@@ -47,7 +47,7 @@ export function filterColorProducts(id) {
           dispatch(setStatus(STATUSES.IDLE));
         });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       dispatch(setStatus(STATUSES.ERORR));
     }
   };

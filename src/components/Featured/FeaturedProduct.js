@@ -28,7 +28,7 @@ const FeaturedProduct = () => {
       }
     }
   }
-  console.log("Final Products - -",finalProducts)
+  // console.log("Final Products - -",finalProducts)
   return (
     <div className="featured-section p-3">
       <h3>Featured Products</h3>

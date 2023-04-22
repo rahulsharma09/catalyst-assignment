@@ -29,7 +29,6 @@ export default materialFilterSlice.reducer;
 // THUNK
 export function filterProducts(id) {
     return async function fetchProductThunk(dispatch, getState) {
-        let filteredProducts = [];
       dispatch(setStatus(STATUSES.LOADING));
       const token = "Ex9yLyRU7wvyxfblpq5HAhfQqUP1vIyo";
       const url =
@@ -49,7 +48,7 @@ export function filterProducts(id) {
             dispatch(setStatus(STATUSES.IDLE));
           });
       } catch (error) {
-        console.log(error);
+        // console.log(error);
         dispatch(setStatus(STATUSES.ERORR));
       }
     };

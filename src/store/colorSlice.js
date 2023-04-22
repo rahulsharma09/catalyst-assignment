@@ -38,7 +38,7 @@ export function fetchColor() {
           dispatch(setStatus(STATUSES.IDLE));
         });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       dispatch(setStatus(STATUSES.ERROR));
     }
   };

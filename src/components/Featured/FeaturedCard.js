@@ -8,7 +8,7 @@ const FeaturedCard = ({ product, color, material }) => {
   const dispatch = useDispatch();
   const handleCart = (product) => {
     let flag = false;
-    // console.log(cartItems.length);
+    // // console.log(cartItems.length);
     if (cartItems.length <= 0) {
       dispatch(addToCart(product));
       let cookie = []
@@ -18,7 +18,7 @@ const FeaturedCard = ({ product, color, material }) => {
     } else {
       let cookieProduct = localStorage.getItem("cartProducts");
       cookieProduct = JSON.parse(cookieProduct);
-      console.log(cookieProduct)
+      // console.log(cookieProduct)
       cookieProduct.push(product);
       localStorage.setItem("cartProducts",JSON.stringify(cookieProduct))
       cartItems.map((item) => {
