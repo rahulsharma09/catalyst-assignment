@@ -4,8 +4,6 @@ import { useEffect, useState } from 'react'
 import FeaturedCard from "./FeaturedCard";
 import { fetchFeaturedProducts } from '../../store/featuredSlice'
 import { fetchProducts } from '../../store/productSlice'
-import { fetchColor } from "../../store/colorSlice";
-import { fetchMaterial } from "../../store/materialSlice";
 import Loading from "../Loading/Loading";
 
 const FeaturedProduct = () => {
