@@ -28,6 +28,7 @@ export default featuredProductSlice.reducer;
 // THUNKS
 export function fetchFeaturedProducts() {
   return async function fetchFeaturedProductThunk(dispatch, getState) {
+    console.log("inside featured slice ")
     dispatch(setStatus(STATUSES.LOADING));
     const token = "Ex9yLyRU7wvyxfblpq5HAhfQqUP1vIyo";
     const url =
@@ -36,7 +37,8 @@ export function fetchFeaturedProducts() {
       axios
         .get(url, { headers: { Authorization: `Bearer ${token}` } })
         .then((res) => {
-          dispatch(setFeaturedProduct(res.data));
+          console.log("data form slice - - ",res.data.featured)
+          dispatch(setFeaturedProduct(res.data.featured));
           dispatch(setStatus(STATUSES.IDLE));
         });
     } catch (error) {

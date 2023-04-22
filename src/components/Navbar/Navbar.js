@@ -11,7 +11,7 @@ const Navbar = () => {
   if (cartItem.length == 0) {
     let cartProducts = localStorage.getItem("cartProducts");
     cartProducts = JSON.parse(cartProducts);
-    if (cartProducts.length > 0) {
+    if (cartProducts != null && cartProducts.length > 0) {
       console.log(cartProducts);
       cartLength = cartProducts.length;
     }
