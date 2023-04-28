@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import store from "./Store";
 import axios from "axios";
 const STATUSES = Object.freeze({
   IDLE: "idle",

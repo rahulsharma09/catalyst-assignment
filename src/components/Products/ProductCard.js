@@ -2,6 +2,7 @@ import React from "react";
 import "./Products.css";
 import { addToCart } from "../../store/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product, color, material }) => {
   const cartItems = useSelector((state) => state.cart);
@@ -11,8 +12,8 @@ const ProductCard = ({ product, color, material }) => {
     // // console.log(cartItems.length);
     if (cartItems.length <= 0) {
       dispatch(addToCart(product));
-      let cookie = []
-      cookie.push(product)
+      let cookie = [];
+      cookie.push(product);
       localStorage.setItem("cartProducts", JSON.stringify(cookie));
       alert("Product added to cart");
     } else {
@@ -20,7 +21,7 @@ const ProductCard = ({ product, color, material }) => {
       cookieProduct = JSON.parse(cookieProduct);
       // console.log(cookieProduct)
       cookieProduct.push(product);
-      localStorage.setItem("cartProducts",JSON.stringify(cookieProduct))
+      localStorage.setItem("cartProducts", JSON.stringify(cookieProduct));
       cartItems.map((item) => {
         if (item.id == product.id) {
           flag = true;
@@ -59,8 +60,13 @@ const ProductCard = ({ product, color, material }) => {
           })}
         </p>
       </div>
-      <div className="price">
-        <p>INR {product.price}.00</p>
+      <div className="prod-details">
+        <div className="price">
+          <p>INR {product.price}.00</p>
+        </div>
+        <div className="view-details">
+          <Link to={`product-detail/${product.id}`}>View Details</Link>
+        </div>
       </div>
     </div>
   );

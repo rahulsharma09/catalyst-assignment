@@ -101,6 +101,13 @@ div {
 p:hover {
   cursor: pointer;
 }
+.prod-details{
+  display: flex;
+  justify-content: space-between;
+}
+.view-details{
+  text-transform: capitalize;
+}
 .material-filter > div:hover {
   color: blue;
   font-weight: bold;
